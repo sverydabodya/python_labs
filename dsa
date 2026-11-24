@@ -1,0 +1,5 @@
+47.936s Home-PC ❯ .venv\Scripts\python.exe -m django --version
+6.1.2
+                           course_monitoring  course_monitoring 3.14.8
+533ms Home-PC ❯ .venv\Scripts\python.exe -c "import sqlite3, ctypes; print(sqlite3.sqlite_version)"
+3.42.0
