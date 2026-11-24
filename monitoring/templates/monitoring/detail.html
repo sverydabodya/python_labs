@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ device.name }}</title>
+</head>
+<body>
+    <h1>{{ device.name }}</h1>
+    <p>Серійний номер: {{ device.serial }}</p>
+    <p><a href="{% url 'monitoring:index' %}">Назад до переліку</a></p>
+</body>
+</html>

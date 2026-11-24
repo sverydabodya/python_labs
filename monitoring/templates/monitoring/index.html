@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Моніторинг обладнання — Варіант 19</title>
+    </head>
+    <body>
+        <h1>Дослідна компостна станція</h1>
+
+        <form method="get" action="{% url 'monitoring:index' %}">
+            <input
+                type="text"
+                name="q"
+                value="{{ q }}"
+                placeholder="Пошук за назвою..."
+            />
+            <button type="submit">Знайти</button>
+        </form>
+
+        <ul>
+            {% for device in devices %}
+            <li>
+                <a href="{% url 'monitoring:detail' pk=device.pk %}">
+                    {{ device.name }} ({{ device.serial }})
+                </a>
+            </li>
+            {% empty %}
+            <li>Пристроїв немає</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
