@@ -23,6 +23,9 @@
                 <a href="{% url 'monitoring:detail' pk=device.pk %}">
                     {{ device.name }} ({{ device.serial }})
                 </a>
+                — вимірювань: {{ device.meas_count }}, середня: {% if
+                device.avg_temp is not None %}{{ device.avg_temp|floatformat:2
+                }} °C{% else %}немає даних{% endif %}
             </li>
             {% empty %}
             <li>Пристроїв немає</li>

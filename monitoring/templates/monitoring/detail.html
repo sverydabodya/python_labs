@@ -1,12 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ device.name }}</title>
-</head>
-<body>
-    <h1>{{ device.name }}</h1>
-    <p>Серійний номер: {{ device.serial }}</p>
-    <p><a href="{% url 'monitoring:index' %}">Назад до переліку</a></p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ device.name }}</title>
+    </head>
+    <body>
+        <h1>{{ device.name }}</h1>
+        <p>Серійний номер: {{ device.serial }}</p>
+        <h2>Вимірювання (від найновішого)</h2>
+        <ul>
+            {% for m in measurements %}
+            <li>{{ m.temperature }} °C — {{ m.measured_at }}</li>
+            {% empty %}
+            <li>Вимірювань немає</li>
+            {% endfor %}
+        </ul>
+        <p><a href="{% url 'monitoring:index' %}">Назад до переліку</a></p>
+    </body>
 </html>
