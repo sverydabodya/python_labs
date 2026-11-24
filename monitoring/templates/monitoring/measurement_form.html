@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Додати вимірювання</title>
+    </head>
+    <body>
+        <h1>Нове вимірювання</h1>
+        <form method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit">Зберегти</button>
+        </form>
+        <p><a href="{% url 'monitoring:index' %}">Назад до переліку</a></p>
+    </body>
+</html>

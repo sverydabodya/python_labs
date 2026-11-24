@@ -1,4 +1,6 @@
 from decimal import Decimal
+
+from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models import Q
@@ -16,6 +18,13 @@ class Device(models.Model):
     name = models.CharField(max_length=80)
     serial = models.CharField(max_length=40, unique=True)
     tags = models.ManyToManyField(Tag, related_name="devices", blank=True)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name="devices",
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return f"{self.name} ({self.serial})"
